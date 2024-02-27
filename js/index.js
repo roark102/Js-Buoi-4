@@ -1,88 +1,23 @@
 // Bài 1:
 // Bước 1: Xác định đầu vào:
-// + Số nguyên thứ 1,2,3: number1, number2, number3
-// Bước 2: Xử lí
-//     TH1: Nếu number1>number2 && number2>number3;
-//         => Thứ tự: number3, number2, number1
-//     TH2: Nếu number1>number2 && number2<number3
-//         => Nếu number1>number3 => thứ tư number2, number3,number1
-//         => else => thứ tự number2,number1, number3
-//     TH3: Nếu number1 <number2 && number2<number3;
-//         => thứ tự number1, number2, number3
-//     Th4: Nếu number1 < number2 && number2>number3;
-//         Nếu number1 >number3: thứ tự: number3, number1,number2;
-//         else =>thứ tự number1, number3,number2
-
-// Bước 3: kết quả:
-// + Thứ tự 3 số tăng dần
-
-// document.getElementById("sort").onclick = function () {
-//   var number1 = +document.getElementById("number1").value;
-//   var number2 = +document.getElementById("number2").value;
-//   var number3 = +document.getElementById("number3").value;
-
-//   if (number1 > number2 && number2 > number3) {
-//     document.getElementById("result1").innerHTML = `
-//     Thứ tự tăng dần: ${number3}, ${number2}, ${number1}`;
-//   } else if (number1 > number2 && number2 < number3) {
-//     if (number1 > number3) {
-//       document.getElementById("result1").innerHTML = `
-//         Thứ tự tăng dần: ${number2}, ${number3}, ${number1}`;
-//     } else {
-//       document.getElementById("result1").innerHTML = `
-//         Thứ tự tăng dần: ${number2}, ${number1}, ${number3}`;
-//     }
-//   } else if (number1 < number2 && number2 < number3) {
-//     document.getElementById("result1").innerHTML = `
-//     Thứ tự tăng dần: ${number1}, ${number2}, ${number3}`;
-//   } else {
-//     if (number1 > number3) {
-//       document.getElementById("result1").innerHTML = `
-//         Thứ tự tăng dần: ${number3}, ${number1}, ${number2}`;
-//     } else {
-//       document.getElementById("result1").innerHTML = `
-//         Thứ tự tăng dần: ${number1}, ${number3}, ${number2}`;
-//     }
-//   }
-// };
+1;
 document.getElementById("sort").onclick = function () {
   var number1 = +document.getElementById("number1").value;
   var number2 = +document.getElementById("number2").value;
   var number3 = +document.getElementById("number3").value;
-
+  var numberPse = number1;
   if (number1 > number2) {
-    if (number2 > number3) {
-      document.getElementById(
-        "result1"
-      ).innerHTML = `Thứ tự tăng dần: ${number3}, ${number2}, ${number1}`;
-    } else {
-      if (number1 > number3) {
-        document.getElementById(
-          "result1"
-        ).innerHTML = `Thứ tự tăng dần: ${number2}, ${number3}, ${number1}`;
-      } else {
-        document.getElementById(
-          "result1"
-        ).innerHTML = `Thứ tự tăng dần: ${number2}, ${number1}, ${number3}`;
-      }
-    }
-  } else {
-    if (number2 < number3) {
-      document.getElementById(
-        "result1"
-      ).innerHTML = `Thứ tự tăng dần: ${number1}, ${number2}, ${number3}`;
-    } else {
-      if (number1 > number3) {
-        document.getElementById(
-          "result1"
-        ).innerHTML = `Thứ tự tăng dần: ${number3}, ${number1}, ${number2}`;
-      } else {
-        document.getElementById(
-          "result1"
-        ).innerHTML = `Thứ tự tăng dần: ${number1}, ${number3}, ${number2}`;
-      }
-    }
+    number1 = number2;
+    number2 = numberPse;
   }
+  if (number2 > number3) {
+    numberPse = number2;
+    number2 = number3;
+    number3 = numberPse;
+  }
+  document.getElementById(
+    "result1"
+  ).innerHTML = `Thứ tự tăng dần là: ${number1}, ${number2}, ${number3}`;
 };
 
 // Bài 2:
